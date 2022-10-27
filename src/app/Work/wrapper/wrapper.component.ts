@@ -9,16 +9,20 @@ import { ProjectsService } from 'src/app/services/projects.service';
   styleUrls: ['./wrapper.component.css'],
 })
 export class WrapperComponent implements OnInit {
-  projects: Project[];
+  projects!: {
+    fields: Project;
+    id: string;
+  }[];
   constructor(
     private p: ProjectsService,
     private contentful: ContentfulService
-  ) {
-    this.projects = this.p.getProjects;
-  }
+  ) {}
 
   ngOnInit(): void {
     // this.contentful.logContent('YurZkz1Bwevm59WlvLGTj');
-    this.contentful.getAllProjects().subscribe((data) => console.log(data));
+    this.contentful.getAllProjects().subscribe((data) => {
+      this.projects = data;
+      console.log(data);
+    });
   }
 }

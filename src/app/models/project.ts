@@ -1,6 +1,13 @@
 export interface Project {
-  name: string;
-  image: string;
+  title: string;
+  image: {
+    fields: {
+      file: {
+        url: string;
+      };
+    };
+  };
+  employer: string;
   platforms: string[];
   programs: string[];
   description: string;

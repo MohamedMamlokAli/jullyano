@@ -1,6 +1,9 @@
 <article class="border-yellow-700 w-full rounded-lg group">
   <div class="w-full aspect-video relative">
-    <img [src]="project.image" class="w-full h-full object-cover" />
+    <img
+      [src]="'https:' + project.fields.image.fields.file.url"
+      class="w-full h-full object-cover"
+    />
     <div
       class="absolute left-0 bottom-0 w-36 h-36 bg-red-500 rounded-full flex items-center justify-center text-white rotate-90 scale-0 group-hover:scale-100 group-hover:rotate-0 transition-all duration-500 border-t-white border-r-mainBlue border-b-green-500 border-l-black border-2"
     >
@@ -8,17 +11,20 @@
     </div>
   </div>
   <div class="text-center">
-    <span class="text-yellow-400 text-xs font-semibold">RAAD</span>
+    <span class="text-yellow-400 text-xs font-semibold">{{
+      project.fields.employer
+    }}</span>
     <p
       class="text-xl font-bold transition-all duration-200 group-hover:text-mainBlue font-roboto"
     >
-      {{ project.name }}
+      <a [routerLink]="project.id">
+        {{ project.fields.title }}
+      </a>
     </p>
     <span
       class="text-red-400 text-xs font-roboto flex items-center justify-center"
       ><img
-        *ngFor="let platfrom of project.platforms"
-        src="assets/youtube.png"
+        *ngFor="let platfrom of project.fields.platforms"
         [src]="'assets/' + platfrom + '.png'"
         class="w-10 h-10 object-cover"
         alt=""

@@ -7,7 +7,10 @@ import { Project } from 'src/app/models/project';
   styleUrls: ['./card.component.css'],
 })
 export class CardComponent implements OnInit {
-  @Input() project!: Project;
+  @Input() project!: {
+    fields: Project;
+    id: string;
+  };
   constructor() {}
 
   ngOnInit(): void {}
