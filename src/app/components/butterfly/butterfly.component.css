@@ -1,0 +1,5 @@
+.half {
+  border-top-left-radius: 0px; /* 100px of height + 10px of border */
+  border-bottom-right-radius: 0px; /* 100px of height + 10px of border */
+  border-bottom: 0;
+}

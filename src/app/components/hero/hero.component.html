@@ -1,0 +1,51 @@
+<section
+  id="heroSection"
+  class="w-full max-w-7xl mx-auto h-[calc(100vh-60px)] md:flex relative"
+>
+  <div
+    class="absolute inset-0 z-10 flex items-center justify-center text-center bg-black bg-opacity-50 text-white"
+    id="leftWrapper"
+  >
+    <div class="px-5 space-y-4 italic" id="innerLeft">
+      <div class="space-y-4" id="innerLeftText">
+        <p class="text-lg text-gray-300">
+          The process of editing is what I enjoy most - putting the pieces
+          together and making sense out of them
+        </p>
+        <div class="space-y-1">
+          <h2 class="text-mainBlue text-xl md:text-3xl">JULLYANO WAHEEP</h2>
+          <h3 class="md:text-lg">Video Editor / Graphic Designer</h3>
+        </div>
+      </div>
+      <div
+        id="innerLeftCounter"
+        class="flex justify-center gap-3 text-gray-300 not-italic"
+      >
+        <div>
+          <p>{{ years }}</p>
+          <p>Years Experience</p>
+        </div>
+        <div>
+          <p>{{ videos }}+</p>
+          <p>Videos Created</p>
+        </div>
+        <div>
+          <p>{{ views | number }}+</p>
+          <p>Views Acquired</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="h-full w-full relative overflow-hidden">
+    <video
+      loop
+      muted
+      autoplay
+      oncanplay="this.play()"
+      onloadedmetadata="this.muted = true"
+      class="w-full h-full object-cover absolute"
+    >
+      <source src="assets/mainVid.mp4" type="video/mp4" />
+    </video>
+  </div>
+</section>

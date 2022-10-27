@@ -1,0 +1,44 @@
+<header
+  class="flex justify-between w-full md:flex-col md:h-screen md:w-max md:justify-center md:space-y-20 text-white p-4 mx-auto sticky top-0 z-10 bg-black"
+>
+  <div
+    class="font-roboto italic font-extrabold flex flex-col items-start text-3xl"
+  >
+    <h1 class="">Jullyano</h1>
+    <span class="text-mainBlue animate-pulse">Editor</span>
+  </div>
+  <div class="md:hidden z-50" (click)="toggleMenu()">
+    <app-menu></app-menu>
+  </div>
+  <div
+    class="fixed from-gradientStart transition-all duration-300 origin-right to-gradientEnd bg-gradient-to-b w-screen h-screen inset-0 flex items-center justify-center text-xl lg:hidden z-40"
+    [ngClass]="{
+      'translate-x-full scale-0': !toggle,
+      'translate-x-0 scale-100': toggle
+    }"
+  >
+    <ul class="space-y-10">
+      <li>Work</li>
+      <li>About</li>
+      <li>Contact</li>
+    </ul>
+  </div>
+  <ul
+    class="justify-between text-base items-center hidden md:block md:space-y-2"
+  >
+    <li>
+      <a routerLink="/work" routerLinkActive="text-mainBlue ">Work</a>
+    </li>
+    <li>
+      <a
+        routerLink="/about"
+        routerLinkActive="text-mainBlue hover:text-mainBlue"
+        class="hover:text-mainBlue/60 transition-all"
+        >About</a
+      >
+    </li>
+    <li>
+      <a routerLink="/contact" routerLinkActive="text-mainBlue ">Contact</a>
+    </li>
+  </ul>
+</header>
