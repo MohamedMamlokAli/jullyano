@@ -2,15 +2,17 @@
   class="w-full max-w-7xl mx-auto px-4 my-20"
   *ngIf="project; else elseClause"
 >
-  <video
-    loop
-    muted
-    controls
-    class="w-full aspect-video"
-    *ngIf="!project.link.includes('embed')"
-  >
-    <source [src]="project.link" type="video/mp4" />
-  </video>
+  <div *ngIf="!project.link.includes('embed')">
+    <video
+      *ngFor="let link of project.link.split(' ')"
+      loop
+      muted
+      controls
+      class="w-full aspect-video"
+    >
+      <source [src]="link" type="video/mp4" />
+    </video>
+  </div>
   <div class="" *ngIf="project.link.includes('embed')">
     <iframe
       [src]="project.link | safe"
@@ -29,7 +31,7 @@
       class="border-t mt-4 py-4 border-mainBlue/50 space-y-2"
     >
       <h2>Programs used:</h2>
-      <div class="flex">
+      <div class="flex items-center">
         <img
           *ngFor="let tech of project.programs"
           [src]="'assets/' + tech + '.png'"
