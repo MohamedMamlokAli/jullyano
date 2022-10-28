@@ -12,7 +12,11 @@ export class ContentfulService {
 
   getContent(id: string) {
     const promise = this.client.getEntry<Project>(id);
-    return from(promise).pipe(map((res) => res.fields));
+    return from(promise).pipe(
+      map((res) => {
+        return res.fields;
+      })
+    );
   }
 
   getAllProjects() {
@@ -20,7 +24,6 @@ export class ContentfulService {
     return from(promise).pipe(
       map((res) =>
         res.items.map((item) => {
-          console.log(item);
           return { fields: item.fields, id: item.sys.id };
         })
       )

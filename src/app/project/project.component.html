@@ -1,12 +1,53 @@
-<p>{{ project.title }}</p>
-<!-- <iframe
-  src="https://cdn-prod-ccv.adobe.com/IPe8Fe7Mjmd/rend/IPe8Fe7Mjmd_576.mp4?hdnts=st%3D1666866978%7Eexp%3D1667126178%7Eacl%3D%2Fshared_assets%2Fimage%2F*%21%2Fz%2FIPe8Fe7Mjmd%2Frend%2F*%21%2Fi%2FIPe8Fe7Mjmd%2Frend%2F*%21%2FIPe8Fe7Mjmd%2Frend%2F*%21%2FIPe8Fe7Mjmd%2Fimage%2F*%7Ehmac%3Dc33275e5e6d64a9148e5ccf49fad209b6cb3e630a384da572750a3146799ece2"
-  frameborder="0"
-></iframe> -->
-
-<video loop muted controls class="">
-  <source
-    src="https://cdn-prod-ccv.adobe.com/IPe8Fe7Mjmd/rend/IPe8Fe7Mjmd_576.mp4?hdnts=st%3D1666866978%7Eexp%3D1667126178%7Eacl%3D%2Fshared_assets%2Fimage%2F*%21%2Fz%2FIPe8Fe7Mjmd%2Frend%2F*%21%2Fi%2FIPe8Fe7Mjmd%2Frend%2F*%21%2FIPe8Fe7Mjmd%2Frend%2F*%21%2FIPe8Fe7Mjmd%2Fimage%2F*%7Ehmac%3Dc33275e5e6d64a9148e5ccf49fad209b6cb3e630a384da572750a3146799ece2"
-    type="video/mp4"
-  />
-</video>
+<div
+  class="w-full max-w-7xl mx-auto px-4 my-20"
+  *ngIf="project; else elseClause"
+>
+  <video
+    loop
+    muted
+    controls
+    class="w-full aspect-video"
+    *ngIf="!project.link.includes('embed')"
+  >
+    <source [src]="project.link" type="video/mp4" />
+  </video>
+  <div class="" *ngIf="project.link.includes('embed')">
+    <iframe
+      [src]="project.link | safe"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+      class="w-full aspect-video"
+    ></iframe>
+  </div>
+  <div id="info" class="my-4">
+    <span class="text-yellow-400">{{ project.employer }}</span>
+    <h1 id="page-title">{{ project.title }}</h1>
+    <div
+      id="technologies"
+      class="border-t mt-4 py-4 border-mainBlue/50 space-y-2"
+    >
+      <h2>Programs used:</h2>
+      <div class="flex">
+        <img
+          *ngFor="let tech of project.programs"
+          [src]="'assets/' + tech + '.png'"
+          class="w-16 h-16 object-contain"
+        />
+      </div>
+    </div>
+    <div id="project-descriptions">
+      <p>{{ project.description }}</p>
+    </div>
+  </div>
+</div>
+<ng-template #elseClause>
+  <div
+    class="w-full max-w-7xl mx-auto px-4 my-20 h-screen flex items-center justify-center"
+  >
+    <div
+      class="w-1/2 aspect-square border-t border-mainBlue animate-spin rounded-full"
+    ></div>
+  </div>
+</ng-template>

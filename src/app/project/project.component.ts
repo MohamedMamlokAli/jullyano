@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Project } from '../models/project';
 import { ContentfulService } from '../services/contentful.service';
-
+import { DomSanitizer } from '@angular/platform-browser';
 @Component({
   selector: 'app-project',
   templateUrl: './project.component.html',
@@ -10,7 +10,7 @@ import { ContentfulService } from '../services/contentful.service';
 })
 export class ProjectComponent implements OnInit {
   id!: string;
-  project: Project = {} as Project;
+  project!: Project;
   constructor(
     private activated: ActivatedRoute,
     private contentful: ContentfulService

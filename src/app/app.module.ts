@@ -14,9 +14,10 @@ import { CardComponent } from './Work/components/card/card.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { ProjectComponent } from './project/project.component';
+import { SafePipe } from './pipes/safe.pipe';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, MenuComponent, HeroComponent, ButterflyComponent, EditedForComponent, ReelComponent, WrapperComponent, CardComponent, AboutComponent, ContactComponent, ProjectComponent],
+  declarations: [AppComponent, HeaderComponent, MenuComponent, HeroComponent, ButterflyComponent, EditedForComponent, ReelComponent, WrapperComponent, CardComponent, AboutComponent, ContactComponent, ProjectComponent, SafePipe],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
