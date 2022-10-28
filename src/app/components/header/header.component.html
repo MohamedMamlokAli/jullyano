@@ -11,16 +11,25 @@
     <app-menu></app-menu>
   </div>
   <div
-    class="fixed from-gradientStart transition-all duration-300 origin-right to-gradientEnd bg-gradient-to-b w-screen h-screen inset-0 flex items-center justify-center text-xl lg:hidden z-40"
+    class="fixed transition-all duration-300 origin-right bg-black w-screen h-screen inset-0 flex items-center justify-center text-xl lg:hidden z-40"
     [ngClass]="{
       'translate-x-full scale-0': !toggle,
       'translate-x-0 scale-100': toggle
     }"
   >
     <ul class="space-y-10">
-      <li>Work</li>
-      <li>About</li>
-      <li>Contact</li>
+      <li><a routerLink="/work" routerLinkActive="text-mainBlue ">Work</a></li>
+      <li>
+        <a
+          routerLink="/about"
+          routerLinkActive="text-mainBlue hover:text-mainBlue"
+          class="hover:text-mainBlue/60 transition-all"
+          >About</a
+        >
+      </li>
+      <li>
+        <a routerLink="/contact" routerLinkActive="text-mainBlue ">Contact</a>
+      </li>
     </ul>
   </div>
   <ul
