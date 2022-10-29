@@ -15,22 +15,26 @@
       </div>
     </div>
     <div class="text-center">
-      <span class="text-yellow-400 text-xs font-semibold">{{
-        project.fields.employer
-      }}</span>
+      <span
+        class="text-[11px] font-extrabold text-yellow-400 tracking-[.30px] font-roboto"
+      >
+        {{ project.fields.employer }}</span
+      >
+
       <p
-        class="text-xl font-bold transition-all duration-200 group-hover:text-mainBlue font-roboto"
+        class="text-base transition-all duration-200 group-hover:text-mainBlue"
       >
         {{ project.fields.title }}
       </p>
-      <span
-        class="text-red-400 text-xs font-roboto flex items-center justify-center"
-        ><img
+
+      <div class="flex items-center justify-center">
+        <img
           *ngFor="let platfrom of project.fields.platforms"
-          [src]="'assets/' + platfrom + '.png'"
-          class="w-10 h-10 object-cover"
-          alt=""
-      /></span>
+          [src]="'assets/' + platfrom.toLowerCase().trim() + '.png'"
+          class="w-12 h-12 object-cover"
+          [alt]="platfrom"
+        />
+      </div>
     </div>
   </article>
 </a>
