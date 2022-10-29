@@ -2,7 +2,13 @@
   class="w-full max-w-7xl mx-auto px-4 my-20"
   *ngIf="project; else elseClause"
 >
-  <div *ngIf="!project.link.includes('embed')">
+  <div
+    *ngIf="!project.link.includes('embed')"
+    class="rounded-lg overflow-hidden relative"
+  >
+    <div
+      class="w-full aspect-video bg-gray-300 animate-pulse absolute -z-10"
+    ></div>
     <video
       *ngFor="let link of project.link.split(' ')"
       loop
@@ -13,7 +19,13 @@
       <source [src]="link" type="video/mp4" />
     </video>
   </div>
-  <div class="" *ngIf="project.link.includes('embed')">
+  <div
+    class="rounded-lg overflow-hidden relative"
+    *ngIf="project.link.includes('embed')"
+  >
+    <div
+      class="w-full aspect-video bg-gray-300 animate-pulse absolute -z-10"
+    ></div>
     <iframe
       [src]="project.link | safe"
       title="YouTube video player"
