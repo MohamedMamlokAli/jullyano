@@ -13,3 +13,6 @@ body {
   color: white;
   font-family: "Druk";
 }
+html {
+  scroll-behavior: smooth;
+}

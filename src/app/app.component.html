@@ -1,6 +1,6 @@
 <div class="md:flex max-w-7xl mx-auto">
   <app-header></app-header>
   <div class="w-full">
-    <router-outlet></router-outlet>
+    <router-outlet (activate)="onActivate($event)"></router-outlet>
   </div>
 </div>

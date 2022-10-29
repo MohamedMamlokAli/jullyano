@@ -11,6 +11,14 @@ module.exports = {
       fontFamily: {
         roboto: ["Roboto", "sans-serif"],
       },
+      animation: {
+        "new-pulse": "wiggle 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;",
+      },
+      keyframes: {
+        wiggle: {
+          "50%": { opacity: "0.2" },
+        },
+      },
     },
   },
   plugins: [],
