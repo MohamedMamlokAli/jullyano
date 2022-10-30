@@ -1,6 +1,7 @@
 <div
   class="w-full max-w-5xl mx-auto px-4 my-20"
-  *ngIf="project; else elseClause"
+  *ngIf="!fetching; else elseClause"
+  [@fadeIn]="!fetching"
 >
   <div
     *ngIf="!project.link.includes('embed')"

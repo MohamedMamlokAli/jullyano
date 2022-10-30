@@ -1,24 +1,36 @@
 import {
-  AfterViewInit,
-  Component,
-  ElementRef,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
+  animate,
+  state,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Project } from '../models/project';
 import { ContentfulService } from '../services/contentful.service';
-import { DomSanitizer } from '@angular/platform-browser';
+
+const fade_in = trigger('fadeIn', [
+  state(
+    'void',
+    style({
+      opacity: 0,
+    })
+  ),
+  transition('void<=>*', [animate('1s ease-in-out')]),
+]);
 @Component({
   selector: 'app-project',
   templateUrl: './project.component.html',
   styleUrls: ['./project.component.css'],
+  animations: [fade_in],
 })
 export class ProjectComponent implements OnInit {
   project!: Project;
   random!: Project;
   pageId!: string;
   randId!: string;
+  fetching = false;
   constructor(
     private activated: ActivatedRoute,
     private contentful: ContentfulService
@@ -28,9 +40,10 @@ export class ProjectComponent implements OnInit {
     this.activated.params.subscribe((data) => {
       this.pageId = data['id'];
       window.scrollY = 0;
-
+      this.fetching = true;
       this.contentful.getContent(data['id']).subscribe((data) => {
         this.project = data;
+        this.fetching = false;
       });
       this.contentful
         .getAllProjectsId()
@@ -48,5 +61,8 @@ export class ProjectComponent implements OnInit {
     }
     this.randId = ran;
     return ran;
+  }
+  startAnimation(event: any) {
+    console.log(event);
   }
 }

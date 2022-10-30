@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -17,8 +17,22 @@ import { ProjectComponent } from './project/project.component';
 import { SafePipe } from './pipes/safe.pipe';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, MenuComponent, HeroComponent, ButterflyComponent, EditedForComponent, ReelComponent, WrapperComponent, CardComponent, AboutComponent, ContactComponent, ProjectComponent, SafePipe],
-  imports: [BrowserModule, AppRoutingModule],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    MenuComponent,
+    HeroComponent,
+    ButterflyComponent,
+    EditedForComponent,
+    ReelComponent,
+    WrapperComponent,
+    CardComponent,
+    AboutComponent,
+    ContactComponent,
+    ProjectComponent,
+    SafePipe,
+  ],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
