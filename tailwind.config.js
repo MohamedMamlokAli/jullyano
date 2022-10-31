@@ -8,6 +8,10 @@ module.exports = {
         gradientStart: "#F83868",
         gradientEnd: "#4878F8",
       },
+      dropShadow: {
+        text: "0px 0px 1px rgba(57, 216, 248,1)",
+      },
+
       fontFamily: {
         roboto: ["Roboto", "sans-serif"],
       },

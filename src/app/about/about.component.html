@@ -1,1 +1,60 @@
-ABOUT
+<div
+  class="w-full max-w-5xl mx-auto px-4 md:pl-14 min-h-screen flex items-center justify-center"
+  *ngIf="about"
+>
+  <div class="md:w-2/3">
+    <div
+      [@staggerContent]="about.content.split('\n').length"
+      class="border-red-500"
+    >
+      <p
+        *ngFor="let entry of about?.content?.split('\n')"
+        class="block text-mainBlue text-sm font-roboto tracking-wide"
+        [ngClass]="{
+          'leading-[15px]': entry == '.',
+          'text-slate-100 ml-4 md:ml-9 text-sm font-normal leading-6 ':
+            entry.startsWith('-'),
+          'font-bold !font-serif text-3xl ': entry.endsWith('Jullyano '),
+          '!text-base  text-gray-400 italic font-thin font-montserrat':
+            entry.startsWith('Video'),
+          'text-mainBlue font-montserrat mb-2 text-lg': entry.endsWith('-')
+        }"
+      >
+        {{ entry == "." ? "&nbsp;" : entry }}
+      </p>
+    </div>
+    <div
+      class="max-w-lg gap-2 place-items-center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-4"
+      [@fadeIn]="about.image ? 'show' : 'hide'"
+    >
+      <img
+        src="assets/raad.png"
+        alt=""
+        class="w-2/3 lg:w-full object-contain aspect-video grayscale hover:grayscale-0"
+      />
+      <img
+        src="assets/bme.png"
+        alt=""
+        class="w-2/3 lg:w-full object-contain aspect-video grayscale hover:grayscale-0"
+      />
+      <img
+        src="assets/bmesuper.png"
+        alt=""
+        class="w-2/3 lg:w-full object-contain aspect-video grayscale hover:grayscale-0"
+      />
+      <img
+        src="assets/we.png"
+        alt=""
+        class="w-2/3 lg:w-full object-contain aspect-video grayscale hover:grayscale-0"
+      />
+    </div>
+  </div>
+  <div class="hidden md:block md:w-1/3">
+    <img
+      [@fadeIn]="about ? 'show' : 'hide'"
+      [src]="'https:' + about.image"
+      alt=""
+      class="w-full aspect-square object-cover"
+    />
+  </div>
+</div>

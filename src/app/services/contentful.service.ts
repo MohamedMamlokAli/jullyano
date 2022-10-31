@@ -45,4 +45,15 @@ export class ContentfulService {
       )
     );
   }
+  getAbout() {
+    const promise = this.client.getEntry<any>('uslX96yh9jaZ0FTCSqMQ2');
+    return from(promise).pipe(
+      map((data) => {
+        return {
+          content: data.fields.content,
+          image: data.fields.image.fields.file.url,
+        };
+      })
+    );
+  }
 }
