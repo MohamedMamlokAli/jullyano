@@ -12,6 +12,13 @@ export interface Project {
   programs: string[];
   description: string;
   link: string;
+  video: {
+    fields: {
+      file: {
+        url: string;
+      };
+    };
+  }[];
 }
 export interface About {
   content: string;
