@@ -15,6 +15,8 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { ProjectComponent } from './project/project.component';
 import { SafePipe } from './pipes/safe.pipe';
+import { MatInputModule } from '@angular/material/input';
+import { MaterialModule } from './material/material.module';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,13 @@ import { SafePipe } from './pipes/safe.pipe';
     ProjectComponent,
     SafePipe,
   ],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MaterialModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
