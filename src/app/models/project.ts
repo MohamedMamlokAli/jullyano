@@ -12,7 +12,7 @@ export interface Project {
   programs: string[];
   description: string;
   link: string;
-  video: {
+  video?: {
     fields: {
       file: {
         url: string;

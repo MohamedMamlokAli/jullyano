@@ -43,7 +43,6 @@ export class ProjectComponent implements OnInit {
       this.fetching = true;
       this.contentful.getContent(data['id']).subscribe((data) => {
         this.project = data;
-        console.log(data.video[0].fields.file.url);
         this.fetching = false;
       });
       this.contentful
