@@ -18,7 +18,14 @@
     }"
   >
     <ul class="space-y-10">
-      <li><a routerLink="/work" routerLinkActive="text-mainBlue ">Work</a></li>
+      <li>
+        <a
+          routerLink="/work"
+          routerLinkActive="text-mainBlue "
+          class="hover:text-mainBlue/60 transition-all"
+          >Work</a
+        >
+      </li>
       <li>
         <a
           routerLink="/about"
@@ -28,7 +35,12 @@
         >
       </li>
       <li>
-        <a routerLink="/contact" routerLinkActive="text-mainBlue ">Contact</a>
+        <a
+          routerLink="/contact"
+          routerLinkActive="text-mainBlue "
+          class="hover:text-mainBlue/60 transition-all"
+          >Contact</a
+        >
       </li>
     </ul>
   </div>
@@ -54,7 +66,7 @@
       <a
         [href]="contact.link"
         *ngFor="let contact of this.contactInfo"
-        class="hover:border border-mainBlue"
+        class=""
       >
         <img
           [src]="contact.icon"
