@@ -68,6 +68,11 @@ export class ContactComponent implements OnInit {
       text: '+201221177166',
     },
     {
+      icon: 'assets/mail.png',
+      link: 'mailto:john.waheb41@gmail.com',
+      text: 'john.waheb41@gmail.com',
+    },
+    {
       icon: 'assets/insta.png',
       link: 'https://www.instagram.com/jullyano_waheep/',
       text: '@jullyano_waheep',
