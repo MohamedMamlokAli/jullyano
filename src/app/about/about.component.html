@@ -1,8 +1,8 @@
 <div
-  class="w-full max-w-5xl mx-auto px-4 md:pl-14 min-h-screen flex items-center justify-center"
+  class="w-full max-w-6xl mx-auto px-4 md:pl-14 min-h-screen flex items-center justify-center"
   *ngIf="about"
 >
-  <div class="md:w-2/3">
+  <div class="md:w-3/4">
     <div
       [@staggerContent]="about.content.split('\n').length"
       class="border-red-500"
@@ -23,30 +23,38 @@
         {{ entry == "." ? "&nbsp;" : entry }}
       </p>
     </div>
-    <div
-      class="max-w-lg gap-2 place-items-center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-4"
-      [@fadeIn]="about.image ? 'show' : 'hide'"
-    >
-      <img
-        src="assets/raad.png"
-        alt=""
-        class="w-2/3 lg:w-full object-contain aspect-video grayscale hover:grayscale-0"
-      />
-      <img
-        src="assets/bme.png"
-        alt=""
-        class="w-2/3 lg:w-full object-contain aspect-video grayscale hover:grayscale-0"
-      />
-      <img
-        src="assets/bmesuper.png"
-        alt=""
-        class="w-2/3 lg:w-full object-contain aspect-video grayscale hover:grayscale-0"
-      />
-      <img
-        src="assets/we.png"
-        alt=""
-        class="w-2/3 lg:w-full object-contain aspect-video grayscale hover:grayscale-0"
-      />
+    <div class="mt-10 space-y-4">
+      <h3>Worked For:</h3>
+      <div
+        class="max-w-2xl gap-2 place-items-center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center"
+        [@fadeIn]="about.image ? 'show' : 'hide'"
+      >
+        <img
+          src="assets/raad.png"
+          alt=""
+          class="w-2/3 lg:w-full object-contain aspect-video grayscale hover:grayscale-0"
+        />
+        <img
+          src="assets/3bl.png"
+          alt=""
+          class="w-2/3 lg:w-full object-contain aspect-video grayscale hover:grayscale-0"
+        />
+        <img
+          src="assets/we.png"
+          alt=""
+          class="w-2/3 lg:w-full object-contain aspect-video grayscale hover:grayscale-0"
+        />
+        <img
+          src="assets/bmesuper.png"
+          alt=""
+          class="w-2/3 lg:w-full object-contain aspect-video grayscale hover:grayscale-0"
+        />
+        <img
+          src="assets/bme.png"
+          alt=""
+          class="w-2/3 lg:w-full object-contain aspect-video grayscale hover:grayscale-0"
+        />
+      </div>
     </div>
   </div>
   <div class="hidden md:block md:w-1/3">

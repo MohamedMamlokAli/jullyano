@@ -30,6 +30,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   toggle = false;
+  contactInfo = [
+    {
+      icon: 'assets/face.png',
+      link: 'https://www.facebook.com/Jullyano1',
+      text: 'Jullyano',
+    },
+    {
+      icon: 'assets/twitter.png',
+      link: 'https://twitter.com/Jullyano_lol',
+      text: '@Jullyano_lol',
+    },
+
+    {
+      icon: 'assets/insta.png',
+      link: 'https://www.instagram.com/jullyano_waheep/',
+      text: '@jullyano_waheep',
+    },
+  ];
+
   constructor() {}
 
   ngOnInit(): void {}

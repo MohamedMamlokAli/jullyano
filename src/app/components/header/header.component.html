@@ -50,5 +50,20 @@
     <li>
       <a routerLink="/contact" routerLinkActive="text-mainBlue ">Contact</a>
     </li>
+    <div class="flex items-center w-full -translate-x-4 translate-y-6">
+      <a
+        [href]="contact.link"
+        *ngFor="let contact of this.contactInfo"
+        class="hover:border border-mainBlue"
+      >
+        <img
+          [src]="contact.icon"
+          [alt]="contact.text"
+          class="w-10 object-contain"
+        />
+      </a>
+      <!-- <img src="assets/twitter.png" alt="" class="w-10 object-contain" />
+      <img src="assets/facebook.png" alt="" class="w-10 object-contain" /> -->
+    </div>
   </ul>
 </header>
