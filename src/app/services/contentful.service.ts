@@ -16,7 +16,6 @@ export class ContentfulService {
     const promise = this.client.getEntry<Project>(id);
     return from(promise).pipe(
       map((res) => {
-        console.log(res);
         return res.fields;
       })
     );

@@ -62,7 +62,5 @@ export class ProjectComponent implements OnInit {
     this.randId = ran;
     return ran;
   }
-  startAnimation(event: any) {
-    console.log(event);
-  }
+  startAnimation(event: any) {}
 }

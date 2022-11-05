@@ -61,7 +61,6 @@ export class AboutComponent implements OnInit {
   ngOnInit(): void {
     this.contentful.getAbout().subscribe((data) => {
       this.about = data;
-      console.log(data);
     });
   }
 }

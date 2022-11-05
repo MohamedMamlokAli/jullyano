@@ -1,12 +1,12 @@
 <section class="border-red-700 w-full max-w-4xl mx-auto px-4 my-4 flex">
   <div
     class="grid grid-cols-1 gap-10 lg:grid-cols-2 xl:grid-cols-2 mt-32"
-    *ngIf="projects"
-    [@stagger]="projects.length"
+    *ngIf="projects$"
+    [@stagger]="(projects$ | async)?.length"
   >
     <app-card
       class=""
-      *ngFor="let project of projects"
+      *ngFor="let project of projects$ | async"
       [project]="project"
     ></app-card>
   </div>

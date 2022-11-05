@@ -9,6 +9,7 @@ import {
   trigger,
 } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Project } from 'src/app/models/project';
 import { ContentfulService } from 'src/app/services/contentful.service';
 import { ProjectsService } from 'src/app/services/projects.service';
@@ -48,20 +49,15 @@ import { ProjectsService } from 'src/app/services/projects.service';
   ],
 })
 export class WrapperComponent implements OnInit {
-  projects!: {
-    fields: Project;
-    id: string;
-  }[];
-  constructor(
-    private p: ProjectsService,
-    private contentful: ContentfulService
-  ) {}
+  projects$!: Observable<
+    {
+      fields: Project;
+      id: string;
+    }[]
+  >;
+  constructor(private contentful: ContentfulService) {}
 
   ngOnInit(): void {
-    // this.contentful.logContent('YurZkz1Bwevm59WlvLGTj');
-    this.contentful.getAllProjects().subscribe((data) => {
-      this.projects = data;
-      console.log(data);
-    });
+    this.projects$ = this.contentful.getAllProjects();
   }
 }
